@@ -1,5 +1,6 @@
 package com.example.maven_assesment;
 
+// PrimeCheckerTest.java
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayInputStream;
@@ -57,61 +58,61 @@ public class PrimeCheckerTest {
 
     @Test
     public void testMainMethod() {
-        // Simulate user input for prime check and divisor
+        System.setProperty("TEST_MODE", "true");
+
         String input = "7\n2\n";
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        // Capture output
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
-        // Run main method
         PrimeChecker.main(new String[]{});
 
-        // Validate output
         String output = out.toString();
         assertTrue(output.contains("7 is a prime number."));
         assertTrue(output.contains("Result: 50.0"));
+
+        System.clearProperty("TEST_MODE");
     }
 
     @Test
     public void testMainMethodDivisionByZero() {
-        // Simulate user input for prime check and divisor
+        System.setProperty("TEST_MODE", "true");
+
         String input = "7\n0\n";
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        // Capture output
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
-        // Run main method
         PrimeChecker.main(new String[]{});
 
-        // Validate output
         String output = out.toString();
         assertTrue(output.contains("7 is a prime number."));
         assertTrue(output.contains("Division by zero is not allowed."));
+
+        System.clearProperty("TEST_MODE");
     }
 
     @Test
     public void testMainMethodNonPrimeNumber() {
-        // Simulate user input for prime check and divisor
+        System.setProperty("TEST_MODE", "true");
+
         String input = "4\n2\n";
         ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        // Capture output
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
 
-        // Run main method
         PrimeChecker.main(new String[]{});
 
-        // Validate output
         String output = out.toString();
         assertTrue(output.contains("4 is not a prime number."));
         assertTrue(output.contains("Result: 50.0"));
+
+        System.clearProperty("TEST_MODE");
     }
 }
