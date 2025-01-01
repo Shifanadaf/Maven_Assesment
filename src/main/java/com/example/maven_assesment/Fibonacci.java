@@ -13,7 +13,8 @@ import java.util.List;
         } else if (nterms == 1) {
             sequence.add(0);
         } else {
-            int n1 = 0, n2 = 1;
+            int n1 = 0;
+           int n2 = 1;
             for (int count = 0; count < nterms; count++) {
                 sequence.add(n1);
                 int nth = n1 + n2;
