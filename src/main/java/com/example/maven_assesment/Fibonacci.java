@@ -5,7 +5,7 @@ import java.util.List;
 
   class Fibonacci {
 
-     private static List<Integer> generateFibonacci(int nterms) {
+      static List<Integer> generateFibonacci(int nterms) {
         List<Integer> sequence = new ArrayList<>();
         
         if (nterms <= 0) {
