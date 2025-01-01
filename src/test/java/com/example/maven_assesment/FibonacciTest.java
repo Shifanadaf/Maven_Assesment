@@ -5,10 +5,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-public class FibonacciTest {
+private class FibonacciTest {
 
     @Test
-    public void testNegativeTerms() {
+     void testNegativeTerms() {
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             Fibonacci.generateFibonacci(-5);
         });
@@ -16,7 +16,7 @@ public class FibonacciTest {
     }
 
     @Test
-    public void testZeroTerms() {
+     void testZeroTerms() {
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             Fibonacci.generateFibonacci(0);
         });
@@ -24,19 +24,19 @@ public class FibonacciTest {
     }
 
     @Test
-    public void testOneTerm() {
+     void testOneTerm() {
         List<Integer> result = Fibonacci.generateFibonacci(1);
         assertEquals(List.of(0), result);
     }
 
     @Test
-    public void testMultipleTerms() {
+     void testMultipleTerms() {
         List<Integer> result = Fibonacci.generateFibonacci(5);
         assertEquals(List.of(0, 1, 1, 2, 3), result);
     }
 
     @Test
-    public void testLargeNumberOfTerms() {
+     void testLargeNumberOfTerms() {
         List<Integer> result = Fibonacci.generateFibonacci(10);
         assertEquals(List.of(0, 1, 1, 2, 3, 5, 8, 13, 21, 34), result);
     }
