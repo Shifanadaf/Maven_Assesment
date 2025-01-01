@@ -3,6 +3,9 @@ package com.example.maven_assesment;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.List;
 
 public class PrimeCheckerTest {
@@ -29,9 +32,18 @@ public class PrimeCheckerTest {
     }
 
     @Test
-    public void testDivisionByNonZero() {
-        double result = 100.0 / 5;
-        assertEquals(20.0, result);
+    public void testProcessPrimeCheck() {
+        assertEquals("7 is a prime number.", PrimeChecker.processPrimeCheck(7));
+        assertEquals("9 is not a prime number.", PrimeChecker.processPrimeCheck(9));
+    }
+
+    @Test
+    public void testSafeDivision() {
+        assertEquals(20.0, PrimeChecker.safeDivision(5));
+        Exception exception = assertThrows(ArithmeticException.class, () -> {
+            PrimeChecker.safeDivision(0);
+        });
+        assertEquals("Division by zero is not allowed.", exception.getMessage());
     }
 
     @Test
@@ -43,5 +55,25 @@ public class PrimeCheckerTest {
             }
         });
         assertEquals("API key is missing. Set it as an environment variable.", exception.getMessage());
+    }
+
+    @Test
+    public void testMainFunction() {
+        // Mock user input
+        String input = "7\n5\n";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+
+        // Capture console output
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        // Run the main function
+        PrimeChecker.main(new String[]{});
+
+        String output = outputStream.toString();
+
+        // Verify output
+        assertTrue(output.contains("7 is a prime number."));
+        assertTrue(output.contains("Result: 20.0"));
     }
 }
