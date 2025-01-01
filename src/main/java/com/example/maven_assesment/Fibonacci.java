@@ -1,0 +1,39 @@
+package com.example.maven_assesment;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Fibonacci {
+
+    public static List<Integer> generateFibonacci(int nterms) {
+        List<Integer> sequence = new ArrayList<>();
+        
+        if (nterms <= 0) {
+            throw new IllegalArgumentException("Please enter a positive integer");
+        } else if (nterms == 1) {
+            sequence.add(0);
+        } else {
+            int n1 = 0, n2 = 1;
+            for (int count = 0; count < nterms; count++) {
+                sequence.add(n1);
+                int nth = n1 + n2;
+                n1 = n2;
+                n2 = nth;
+            }
+        }
+        return sequence;
+    }
+
+    public static void main(String[] args) {
+        // Test the generateFibonacci method
+        try {
+            System.out.println(generateFibonacci(5)); // [0, 1, 1, 2, 3]
+            System.out.println(generateFibonacci(10)); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+            System.out.println(generateFibonacci(1)); // [0]
+            System.out.println(generateFibonacci(0)); // Throws exception
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
