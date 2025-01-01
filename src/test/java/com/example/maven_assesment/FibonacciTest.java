@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-private class FibonacciTest {
+class FibonacciTest {
 
     @Test
      void testNegativeTerms() {
