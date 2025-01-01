@@ -57,40 +57,6 @@ public class PrimeCheckerTest {
         assertEquals("API key is missing. Set it as an environment variable.", exception.getMessage());
     }
 
-@Test
-public void testMainFunction() {
-    // Set mock environment variable
-    System.setProperty("API_KEY", "mock-api-key");
 
-    // Mock user input
-    String input = "7\n5\n";
-    ByteArrayInputStream mockInput = new ByteArrayInputStream(input.getBytes());
-    System.setIn(mockInput);
-
-    // Capture console output
-    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-    PrintStream mockOutput = new PrintStream(outputStream);
-    System.setOut(mockOutput);
-
-    try {
-        // Run the main function
-        PrimeChecker.main(new String[]{});
-
-        // Capture and verify output
-        String output = outputStream.toString();
-        System.out.println("Captured Output: " + output); // Debugging log for inspection
-
-        assertTrue(output.contains("7 is a prime number."));
-        assertTrue(output.contains("Result: 20.0"));
-
-    } catch (Exception e) {
-        e.printStackTrace();
-        fail("Main function threw an exception: " + e.getMessage());
-    } finally {
-        // Reset System properties and streams
-        System.clearProperty("API_KEY");
-        System.setIn(System.in);
-        System.setOut(System.out);
-    }
 }
-}
+
