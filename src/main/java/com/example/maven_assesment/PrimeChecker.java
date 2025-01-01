@@ -38,25 +38,32 @@ public class PrimeChecker {
         return primes;
     }
 
+    public static String processPrimeCheck(int number) {
+        return isPrime(number) 
+            ? number + " is a prime number." 
+            : number + " is not a prime number.";
+    }
+
+    public static double safeDivision(int divisor) {
+        if (divisor == 0) {
+            throw new ArithmeticException("Division by zero is not allowed.");
+        }
+        return 100.0 / divisor;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter a number to check if it's prime: ");
         int number = scanner.nextInt();
-
-        if (isPrime(number)) {
-            System.out.println(number + " is a prime number.");
-        } else {
-            System.out.println(number + " is not a prime number.");
-        }
+        System.out.println(processPrimeCheck(number));
 
         System.out.print("Enter a divisor for calculation: ");
         try {
             int divisor = scanner.nextInt();
-            double result = 100.0 / divisor;
-            System.out.println("Result: " + result);
+            System.out.println("Result: " + safeDivision(divisor));
         } catch (ArithmeticException e) {
-            System.out.println("Division by zero is not allowed.");
+            System.out.println(e.getMessage());
         }
 
         String apiKey = System.getenv("API_KEY");
