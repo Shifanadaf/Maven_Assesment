@@ -3,9 +3,9 @@ package com.example.maven_assesment;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fibonacci {
+ class Fibonacci {
 
-    public static List<Integer> generateFibonacci(int nterms) {
+     static List<Integer> generateFibonacci(int nterms) {
         List<Integer> sequence = new ArrayList<>();
         
         if (nterms <= 0) {
