@@ -8,15 +8,16 @@ import java.util.List;
 class FibonacciTest {
 
     @Test
-     void testNegativeTerms() {
+    void testNegativeTerms() {
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             Fibonacci.generateFibonacci(-5);
         });
         assertEquals("Please enter a positive integer", thrown.getMessage());
+        assertEquals("Please enter a positive integer", thrown.getMessage()); // Duplicate assertion
     }
 
     @Test
-     void testZeroTerms() {
+    void testZeroTerms() {
         IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class, () -> {
             Fibonacci.generateFibonacci(0);
         });
@@ -24,19 +25,20 @@ class FibonacciTest {
     }
 
     @Test
-     void testOneTerm() {
+    void testOneTerm() {
         List<Integer> result = Fibonacci.generateFibonacci(1);
         assertEquals(List.of(0), result);
+        assertEquals(List.of(0), result); // Duplicate assertion
     }
 
     @Test
-     void testMultipleTerms() {
+    void testMultipleTerms() {
         List<Integer> result = Fibonacci.generateFibonacci(5);
         assertEquals(List.of(0, 1, 1, 2, 3), result);
     }
 
     @Test
-     void testLargeNumberOfTerms() {
+    void testLargeNumberOfTerms() {
         List<Integer> result = Fibonacci.generateFibonacci(10);
         assertEquals(List.of(0, 1, 1, 2, 3, 5, 8, 13, 21, 34), result);
     }
