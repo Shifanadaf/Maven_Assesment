@@ -35,3 +35,4 @@ class Fibonacci {
         // Return the generated Fibonacci sequence
         return fibonacciSequence;
     }
+}
