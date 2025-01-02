@@ -21,6 +21,12 @@ import java.util.List;
                 n1 = n2;
                 n2 = nth;
             }
+            for (int count = 0; count < nterms; count++) {
+                sequence.add(n1);
+                int nth = n1 + n2;
+                n1 = n2;
+                n2 = nth;
+            }
         }
         return sequence;
     }
