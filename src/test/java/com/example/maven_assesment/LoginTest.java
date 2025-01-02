@@ -1,5 +1,5 @@
 
-package com.example.automation;
+package com.example.maven_assesment;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class LoginAutomationTest {
+public class LoginTest {
 
     @Test
     public void testSuccessfulLogin() {
