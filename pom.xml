@@ -20,7 +20,7 @@
         <sonar.host.url>http://localhost:9000</sonar.host.url>
         <sonar.projectKey>task-2</sonar.projectKey>
          <sonar.login>sqp_862e683c35e43af414ad60b2903963033c875115</sonar.login>
-        <spring.boot.version>2.7.5</spring.boot.version> 
+        
     </properties>
 
     <dependencies>
